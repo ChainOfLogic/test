@@ -16,5 +16,42 @@ class StudentController extends Controller
         $this->middleware('auth');
     }
 
+    public function showStudents()
+    {
+
+    }
+
+    public function deleteStudent()
+    {
+
+    }
+
+    public function modifyStudent()
+    {
+
+    }
+
+    public function addStudent()
+    {
+
+    }
+
+    public function showStudentCourses()
+    {
+
+    }
+
+    public function deleteStudentCourse()
+    {
+
+    }
+
+    public function addStudentCourse()
+    {
+
+
+    }
+
+
 
 }
