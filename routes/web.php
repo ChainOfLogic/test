@@ -48,4 +48,5 @@ Route::post('/students/{course_id}/{stud_id}', 'StudentsController@addStudentCou
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'CourseController@showCourses')->name('home');
+

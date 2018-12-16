@@ -18,8 +18,10 @@ class CourseController extends Controller
 
     public function showCourses()
     {
-
+        return view('courses.courses');
     }
+
+
 
     public function deleteCourse()
     {
@@ -31,7 +33,7 @@ class CourseController extends Controller
 
     }
 
-    public function addCourse()
+    public function addCourse($q)
     {
 
     }
