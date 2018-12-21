@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\StudentCourses;
 use Illuminate\Http\Request;
 use App\Student;
 
@@ -20,31 +21,68 @@ class StudentController extends Controller
     public function showStudents()
     {
         $students = Student::all();
-        return view('students.students');
+        return view('students.students', array('students' => $students));
     }
 
-    public function deleteStudent()
+    //this method is for routering ajax responses. The function name is in the id of an html element. Where it sends here, it's just calls.
+    public function studentsRouter(Request $request)
     {
-
+        $function = $request->input('func');
+        $arg = $request->input('arg');
+        $data = $request->input('data');
+        if (method_exists($this, $function))
+        {
+            $response = $this->$function($arg, $data);
+        }
+        else
+        {
+            $response = null;
+        }
+        return response()->json(array('msg' => $response), 200);
     }
 
-    public function modifyStudent()
-    {
 
+    public function deleteStudent($id)
+    {
+        $student = Student::find($id);
+        $student->delete();
+        return 1;
     }
 
-    public function addStudent()
+    public function modifyStudent($id, $data)
     {
-
+        $student = new Student;
+        $student::where('id', $id)
+        ->update(['first_name' => $data[0], 'second_name' => $data[1], 'birth_date' => $data[2], 'phone_number' => $data[3], 'address' => $data[4], 'email' => $data[5]]);
+        return 2;
     }
 
-    public function showStudentCourses()
+    public function addStudent($arg, $data)
     {
-
+        $student = new Student;
+        $data = array(
+            'first_name'    =>    $data[0],
+            'second_name'   =>    $data[1],
+            'birth_date'    =>    $data[2],
+            'phone_number'  =>    $data[3],
+            'address'       =>    $data[4],
+            'email'         =>    $data[5],
+        );
+        $student::insert($data);
+        return 3;
     }
 
-    public function deleteStudentCourse()
+    public function showStudentCourses($id)
     {
+        $students = Student::find($id);
+
+        return view('students.student_courses', array('courses' => $students->courses, 'student_id' => $id));
+    }
+
+    public function deleteStudentCourse($course_id, $student_id)
+    {
+        $student = StudentCourses::where('course_id', $course_id)
+        ->where('student_id', $student_id)->delete();
 
     }
 
