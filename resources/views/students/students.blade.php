@@ -54,11 +54,11 @@
         <tr>
             <th scope="row"></th>
             <td>
-                <input type="text" class="form-control studentadd" placeholder="first name" pattern="[/^\S*$/]+" title="First_name, must be without spaces" onkeyup='this.value = this.value.replace(/ /g,"-")' style="text-transform: capitalize" required/>
+                <input type="text" class="form-control studentadd" placeholder="first name" pattern="[/^\S*$/]+" title="First_name, must be without spaces" onkeyup='this.value = this.value.replace(/ /,"")' style="text-transform: capitalize" required/>
             </td>
 
             <td>
-                <input type="text" class="form-control studentadd" placeholder="second name" pattern="[/^\S*$/]+" title="Second_name, must be without spaces"  style="text-transform: capitalize" required/>
+                <input type="text" class="form-control studentadd" placeholder="second name" pattern="[/^\S*$/]+" title="Second_name, must be without spaces"  onkeyup='this.value = this.value.replace(/ /,"")' style="text-transform: capitalize" required/>
             </td>
 
             <td>
@@ -66,7 +66,7 @@
             </td>
 
             <td>
-                <input type="text" class="form-control studentadd" placeholder="phone_number" pattern="[0-9-]+"  onkeyup='this.value = this.value.replace(/ /g,"-")' required/>
+                <input type="text" class="form-control studentadd" placeholder="phone_number" pattern="[0-9-]+"  onkeyup='this.value = this.value.replace(/ /g,"-").replace(/[A-Za-z]+/,"").replace(/(^-)/, "").replace(/(--)+/, "-")' required/>
             </td>
 
             <td>
@@ -99,6 +99,11 @@
                 },
                 success: function( msg ) {
                     location.reload()
+                },
+                error: function (msg) {
+
+                    alert('Fill all fields,please')
+
                 }
             })
 
