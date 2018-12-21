@@ -86,10 +86,14 @@ class StudentController extends Controller
 
     }
 
-    public function addStudentCourse()
+    public function addStudentCourse($course_id, $student_id)
     {
-
-
+        $data = array(
+            'course_id'    =>    $course_id,
+            'student_id'   =>    $student_id,
+        );
+        $students_course = new \App\StudentCourses;
+        return response()->json(array('msg' => $students_course::insert($data)), 200);
     }
 
 

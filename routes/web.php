@@ -35,7 +35,7 @@ Route::post('/studentsRouter', 'StudentController@studentsRouter');
 // Delete a course from a user
 Route::post('/delscourse/{course_id}/{stud_id}', 'StudentController@deleteStudentCourse')->where(['course_id' => '[0-9]+', 'stud_id' => '[0-9]+']);
 // Bind a student to a course
-Route::post('/students/{course_id}/{stud_id}', 'StudentController@addStudentCourse')->where(['course_id' => '[0-9]+', 'stud_id' => '[0-9]+']);
+Route::post('/addscourse/{course_id}/{stud_id}', 'StudentController@addStudentCourse')->where(['course_id' => '[0-9]+', 'stud_id' => '[0-9]+']);
 
 
 
