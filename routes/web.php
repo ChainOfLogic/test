@@ -12,7 +12,7 @@
 */
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 
 // Students main page
@@ -42,5 +42,8 @@ Route::post('/students/{course_id}/{stud_id}', 'StudentController@addStudentCour
 
 Route::get('/', function () {
     return redirect('/login');
+});
+Route::get('/home', function () {
+    return redirect('/courses');
 });
 
