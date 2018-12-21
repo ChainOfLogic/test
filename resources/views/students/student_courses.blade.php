@@ -22,7 +22,7 @@
                 <th scope="row">{{ $course['id'] }}</th>
                 <td>{{ $course['name'] }}</td>
                 <td>
-                    <a onclick="del({{ $course['id'].','.$student_id }})" class="badge badge-danger">Delete</a>
+                    <a href="#" onclick="del({{ $course['id'].','.$student_id }})" class="badge badge-danger">Delete</a>
                 </td>.
             </tr>
         @endforeach
@@ -42,7 +42,7 @@
                         <thead class="thead-light">
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Namw</th>
+                            <th scope="col">Name</th>
                             <th scope="col"></th>
 
                         </tr>
@@ -53,7 +53,7 @@
                                 <th scope="row">{{ $cour['id'] }}</th>
                                 <td>{{ $cour['name'] }}</td>
                                 <td>
-                                    <a onclick="add({{ $cour['id'].','.$student_id }})" class="badge badge-info">Add</a>
+                                    <a href="#" onclick="add({{ $cour['id'].','.$student_id }})" class="badge badge-info">Add</a>
 
                                 </td>.
                             </tr>

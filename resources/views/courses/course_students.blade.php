@@ -35,7 +35,7 @@
             <td>{{ $student['address'] }}</td>
             <td>{{ $student['email'] }}</td>
             <td>
-                <a onclick="del({{ $course_id.','.$student['id'] }})" class="badge badge-danger">Delete</a>
+                <a href="#" onclick="del({{ $course_id.','.$student['id'] }})" class="badge badge-danger">Delete</a>
 
             </td>.
         </tr>
@@ -80,7 +80,7 @@
                                 <td>{{ $stud['address'] }}</td>
                                 <td>{{ $stud['email'] }}</td>
                                 <td>
-                                    <a onclick="add({{ $course_id.','.$stud['id'] }})" class="badge badge-info">Add</a>
+                                    <a href="#" onclick="add({{ $course_id.','.$stud['id'] }})" class="badge badge-info">Add</a>
 
                                 </td>.
                             </tr>

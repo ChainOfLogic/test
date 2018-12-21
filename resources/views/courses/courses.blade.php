@@ -20,8 +20,8 @@
 
                 <td>
                     <a href="\courses\{{ $course['id'] }}" class="badge badge-info" >Show students</a>
-                    <a  class="badge badge-danger" onclick="call('deleteCourse', {{ $course['id'] }})">Delete</a>
-                    <a  class="badge badge-warning" onclick="call('modifyCourse', {{ $course['id'] }})">Modify</a>
+                    <a  href="#" class="badge badge-danger" onclick="call('deleteCourse', {{ $course['id'] }})">Delete</a>
+                    <a  href="#" class="badge badge-warning" onclick="call('modifyCourse', {{ $course['id'] }})">Modify</a>
                 </td>.
             </tr>
 

@@ -45,8 +45,8 @@
 
                 <td>
                     <a href="\students\{{ $student['id'] }}" class="badge badge-info" >Show courses</a>
-                    <a  class="badge badge-danger" onclick="call('deleteStudent', {{ $student['id'] }})">Delete</a>
-                    <a  class="badge badge-warning" onclick="call('modifyStudent', {{ $student['id'] }})">Modify</a>
+                    <a  href="#" class="badge badge-danger" onclick="call('deleteStudent', {{ $student['id'] }})">Delete</a>
+                    <a  href="#" class="badge badge-warning" onclick="call('modifyStudent', {{ $student['id'] }})">Modify</a>
                 </td>.
             </tr>
 
@@ -54,27 +54,27 @@
         <tr>
             <th scope="row"></th>
             <td>
-                <input type="text" class="form-control studentadd" placeholder="first name" />
+                <input type="text" class="form-control studentadd" placeholder="first name" pattern="[/^\S*$/]+" title="First_name, must be without spaces" onkeyup='this.value = this.value.replace(/ /g,"-")' style="text-transform: capitalize" required/>
             </td>
 
             <td>
-                <input type="text" class="form-control studentadd" placeholder="second name" />
+                <input type="text" class="form-control studentadd" placeholder="second name" pattern="[/^\S*$/]+" title="Second_name, must be without spaces"  style="text-transform: capitalize" required/>
             </td>
 
             <td>
-                <input type="date" class="form-control studentadd" placeholder="birth_date" />
+                <input type="date" class="form-control studentadd" placeholder="birth_date" required/>
             </td>
 
             <td>
-                <input type="text" class="form-control studentadd" placeholder="phone_number" />
+                <input type="text" class="form-control studentadd" placeholder="phone_number" pattern="[0-9-]+"  onkeyup='this.value = this.value.replace(/ /g,"-")' required/>
             </td>
 
             <td>
-                <input type="text" class="form-control studentadd" placeholder="address" />
+                <input type="text" class="form-control studentadd" placeholder="address" required/>
             </td>
 
             <td>
-                <input type="email" class="form-control studentadd" placeholder="email" />
+                <input type="email" class="form-control studentadd" placeholder="email" required/>
             </td>
             <td>
                 <a href="#" class="badge badge-success" onclick="call('addStudent', 'add')">Add</a>
@@ -103,6 +103,7 @@
             })
 
         }
+
     </script>
 
 @endsection

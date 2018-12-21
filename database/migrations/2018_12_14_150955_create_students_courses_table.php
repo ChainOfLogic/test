@@ -15,9 +15,9 @@ class CreateStudentsCoursesTable extends Migration
     {
         Schema::create('students_courses', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
             $table->unsignedInteger('course_id');
             $table->unsignedInteger('student_id');
+            $table->unique(['course_id', 'student_id']);
 
             $table->foreign('course_id')
                 ->references('id')->on('courses')
